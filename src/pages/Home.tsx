@@ -21,10 +21,11 @@ export function Home() {
       const category = categoryFor(skill.name)
       if (active !== 'all' && category !== active) return false
       if (!q) return true
+      const summary = shortDescription(skill.description).toLowerCase()
       return (
         skill.name.includes(q) ||
-        skill.description.toLowerCase().includes(q) ||
-        category.toLowerCase().includes(q)
+        category.toLowerCase().includes(q) ||
+        summary.includes(q)
       )
     })
   }, [query, active])
