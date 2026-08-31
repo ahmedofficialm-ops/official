@@ -20,6 +20,20 @@ Or copy `skills/` into `.agents/skills/` in any project.
 
 Start with `product-marketing` so other skills share one ICP and positioning file at `.agents/product-marketing.md`.
 
+## Cursor subagents
+
+This repo is the working marketing desk. Cursor picks up:
+
+| Path | Role |
+| --- | --- |
+| `AGENTS.md` | Parent routing: who to spawn |
+| `.cursor/skills/marketing-desk/` | Skill that triggers that routing |
+| `.cursor/agents/*.md` | 10 specialists with isolated context |
+
+Ask in Cursor: “Write homepage copy” or “Audit this landing page for CRO.” The parent should run `product-marketer` if context is missing, then `copywriter` / `cro-specialist` rather than loading all 50 playbooks.
+
+Do **not** install every skill into a single project as Cursor skills. Use the subagents here, or install only the few `npx skills add` packages you need.
+
 ## Catalog site
 
 ```bash
@@ -52,6 +66,9 @@ The Pages build sets `GITHUB_PAGES=true` so Vite uses the `/official/` base path
 | Path | Purpose |
 | --- | --- |
 | `skills/` | Agent skills (`SKILL.md` per skill) |
+| `.cursor/agents/` | Cursor specialist subagents |
+| `.cursor/skills/marketing-desk/` | Orchestrator skill |
+| `AGENTS.md` | Parent delegation rules |
 | `tools/` | CLI helpers and integration notes from upstream |
 | `.claude-plugin/` | Claude Code marketplace / plugin manifests |
 | `src/` | Catalog website |

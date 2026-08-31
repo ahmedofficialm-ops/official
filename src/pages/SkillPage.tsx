@@ -73,6 +73,7 @@ export function SkillPage() {
         </Link>
         <nav>
           <Link to="/">Catalog</Link>
+          <Link to="/agents">Agents</Link>
         </nav>
       </header>
       <section className="skill-hero">

@@ -203,6 +203,19 @@
   margin-top: 16px;
 }
 
+.agent-list {
+  margin: 12px 0 16px;
+  padding-left: 20px;
+}
+
+.agent-list li + li {
+  margin-top: 8px;
+}
+
+.agent-card {
+  min-height: 180px;
+}
+
 .markdown {
   border-top: 1px solid var(--border);
   padding-top: 28px;

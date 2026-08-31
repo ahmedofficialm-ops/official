@@ -1,6 +1,7 @@
 import { useMemo, useState } from 'react'
 import { Link } from 'react-router-dom'
 import { skills } from 'virtual:skills-catalog'
+import { MARKETING_AGENTS } from '../agents'
 import {
   CATEGORIES,
   INSTALL_COMMAND,
@@ -37,6 +38,7 @@ export function Home() {
           Official
         </Link>
         <nav>
+          <Link to="/agents">Agents</Link>
           <a href={REPO_URL}>GitHub</a>
           <a href="#install">Install</a>
         </nav>
@@ -60,7 +62,27 @@ export function Home() {
           Skills are a maintained fork of{' '}
           <a href={UPSTREAM_URL}>coreyhaines31/marketingskills</a> (MIT,
           Copyright 2025 Corey Haines). Install from this repo, or clone and
-          copy <code>skills/</code> into <code>.agents/skills/</code>.
+          copy <code>skills/</code> into <code>.agents/skills/</code>. Cursor
+          subagents in this repo load those playbooks in isolated context.
+        </p>
+      </section>
+
+      <section className="panel" id="agents">
+        <h2>Subagents</h2>
+        <p className="lede">
+          Ten specialists under <code>.cursor/agents/</code>. The desk in{' '}
+          <code>AGENTS.md</code> routes work so one chat does not swallow every
+          skill.
+        </p>
+        <ul className="agent-list">
+          {MARKETING_AGENTS.map((agent) => (
+            <li key={agent.name}>
+              <code>{agent.name}</code> — {agent.summary}
+            </li>
+          ))}
+        </ul>
+        <p>
+          <Link to="/agents">See the full roster and skill map</Link>
         </p>
       </section>
 
