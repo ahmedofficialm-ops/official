@@ -4,13 +4,8 @@
   "terminals": [
     {
       "name": "dev-server",
-      "command": "npm run dev"
-    }
-  ],
-  "ports": [
-    {
-      "name": "dev-server",
-      "port": 5173
+      "command": "npm run dev",
+      "description": "Vite development server on port 5173"
     }
   ]
 }
