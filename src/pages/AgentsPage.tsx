@@ -1,10 +1,14 @@
 import { Link } from 'react-router-dom'
 import { MARKETING_AGENTS } from '../agents'
-import { INSTALL_COMMAND, REPO_URL } from '../catalog'
+import { INSTALL_COMMAND, REPO_URL, UPSTREAM_URL } from '../catalog'
+import { DocumentHead } from '../components/DocumentHead'
+import { DualCta } from '../components/DualCta'
+import { SiteFooter } from '../components/SiteFooter'
 
 export function AgentsPage() {
   return (
     <div className="page">
+      <DocumentHead />
       <header className="nav">
         <Link to="/" className="brand">
           Official
@@ -22,17 +26,36 @@ export function AgentsPage() {
           <span>not one overloaded agent</span>
         </h1>
         <p className="lede">
-          Opening this repo in Cursor loads <code>.cursor/agents/</code>. The
-          parent desk reads <code>AGENTS.md</code>, then Task-delegates so each
-          specialist loads only its playbooks. Ask for a landing page and{' '}
+          Open this repo in Cursor and it loads <code>.cursor/agents/</code>. The
+          parent reads <code>AGENTS.md</code> and routes each job so a specialist
+          loads only its playbooks. Ask for a landing page and{' '}
           <code>cro-specialist</code> plus <code>copywriter</code> run — not all
           50 skills at once.
         </p>
+        <DualCta />
+        <ol className="steps">
+          <li>
+            Open this repository in Cursor (clone{' '}
+            <a href={REPO_URL}>{REPO_URL}</a>).
+          </li>
+          <li>
+            Invoke <code>product-marketer</code> so{' '}
+            <code>.agents/product-marketing.md</code> exists.
+          </li>
+          <li>
+            Ask for the job (“audit this landing page”, “write homepage copy”);
+            the desk routes to a specialist below.
+          </li>
+        </ol>
         <p className="fineprint">
-          First invoke <code>product-marketer</code> so{' '}
-          <code>.agents/product-marketing.md</code> exists. Install playbooks
-          with <code>{INSTALL_COMMAND}</code> if you are in another project;
-          the subagents themselves live in this repository.
+          Invoke <code>product-marketer</code> first so{' '}
+          <code>.agents/product-marketing.md</code> exists. In another project,
+          install playbooks with <code>{INSTALL_COMMAND}</code>. The 10
+          subagents themselves live in this repository. Playbooks are a
+          maintained MIT fork of{' '}
+          <a href={UPSTREAM_URL}>coreyhaines31/marketingskills</a> (Copyright
+          2025 Corey Haines). Official is this desk and catalog, not Conversion
+          Factory or Magister.
         </p>
       </section>
 
@@ -41,9 +64,8 @@ export function AgentsPage() {
           <li key={agent.name}>
             <article className="card agent-card">
               <span className="card-meta">{agent.skills.length} skills</span>
-              <strong>
-                <code>{agent.name}</code>
-              </strong>
+              <strong>{agent.title}</strong>
+              <code>{agent.name}</code>
               <span>{agent.summary}</span>
               <p className="related">
                 {agent.skills.map((skill, index) => (
@@ -57,6 +79,7 @@ export function AgentsPage() {
           </li>
         ))}
       </ul>
+      <SiteFooter />
     </div>
   )
 }

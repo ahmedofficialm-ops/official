@@ -11,6 +11,9 @@ import {
   shortDescription,
 } from '../catalog'
 import { CopyCommand } from '../components/CopyCommand'
+import { DocumentHead } from '../components/DocumentHead'
+import { DualCta } from '../components/DualCta'
+import { SiteFooter } from '../components/SiteFooter'
 
 export function Home() {
   const [query, setQuery] = useState('')
@@ -33,6 +36,7 @@ export function Home() {
 
   return (
     <div className="page">
+      <DocumentHead />
       <header className="nav">
         <Link to="/" className="brand">
           Official
@@ -45,39 +49,41 @@ export function Home() {
       </header>
 
       <section className="hero-block">
-        <p className="eyebrow">
-          {skills.length} skills · MIT · Cursor, Claude Code, Codex
-        </p>
+        <p className="eyebrow">50 skills · 10 specialists · MIT</p>
         <h1>
           Marketing skills
           <span>for AI agents</span>
         </h1>
         <p className="lede">
-          A deployable catalog of conversion, copy, SEO, ads, and growth
-          playbooks. Ask your coding agent to optimize a landing page or write
-          a welcome sequence — it loads the matching skill instead of guessing.
+          Conversion, copy, SEO, ads, and growth playbooks your coding agent can
+          load on demand. Works with Cursor, Claude Code, Codex, and other Agent
+          Skills clients. Ask for a landing-page audit or a welcome sequence — it
+          loads the matching skill instead of guessing, or stuffing all 50 into
+          one chat.
         </p>
-        <CopyCommand command={INSTALL_COMMAND} />
+        <DualCta />
         <p className="fineprint">
-          Skills are a maintained fork of{' '}
-          <a href={UPSTREAM_URL}>coreyhaines31/marketingskills</a> (MIT,
-          Copyright 2025 Corey Haines). Install from this repo, or clone and
-          copy <code>skills/</code> into <code>.agents/skills/</code>. Cursor
-          subagents in this repo load those playbooks in isolated context.
+          Skills are a maintained MIT fork of{' '}
+          <a href={UPSTREAM_URL}>coreyhaines31/marketingskills</a> (Copyright
+          2025 Corey Haines). Official adds this catalog, GitHub Pages
+          packaging, and the Cursor desk in this repo. We are not Corey Haines,
+          Conversion Factory, or Magister. Use upstream if you only need the
+          playbooks.
         </p>
       </section>
 
       <section className="panel" id="agents">
-        <h2>Subagents</h2>
+        <h2>Cursor specialists</h2>
         <p className="lede">
-          Ten specialists under <code>.cursor/agents/</code>. The desk in{' '}
-          <code>AGENTS.md</code> routes work so one chat does not swallow every
-          skill.
+          Ten subagents under <code>.cursor/agents/</code>. Clone this repo in
+          Cursor and ask for homepage copy or a CRO audit. The desk in{' '}
+          <code>AGENTS.md</code> routes the work so one chat does not swallow
+          every skill.
         </p>
         <ul className="agent-list">
           {MARKETING_AGENTS.map((agent) => (
             <li key={agent.name}>
-              <code>{agent.name}</code> — {agent.summary}
+              {agent.title} — <code>{agent.name}</code> — {agent.summary}
             </li>
           ))}
         </ul>
@@ -87,19 +93,22 @@ export function Home() {
       </section>
 
       <section id="install" className="panel">
-        <h2>Install</h2>
+        <h2>Install in your project</h2>
         <ol className="steps">
           <li>
-            From a project directory, run{' '}
-            <code>{INSTALL_COMMAND}</code>
+            In the repo you market from, run{' '}
+            <CopyCommand command={INSTALL_COMMAND} /> Need only a few playbooks?
+            Add <code>--skill cro copywriting</code> (swap names as needed).
           </li>
           <li>
-            Or clone this repo and copy <code>skills/*</code> into{' '}
-            <code>.agents/skills/</code>
+            Write <code>.agents/product-marketing.md</code> first — who you sell
+            to, voice, and claims you will not invent — so CRO, copy, and SEO
+            share one brief.
           </li>
           <li>
-            Create <code>.agents/product-marketing.md</code> first so every
-            other skill shares your ICP and positioning
+            Invoke <code>product-marketer</code>, then the specialist for the
+            job. For the 10 Cursor subagents, clone this repo. Do not install
+            all 50 skills as Cursor skills in one project.
           </li>
         </ol>
       </section>
@@ -115,6 +124,10 @@ export function Home() {
             aria-label="Search skills"
           />
         </div>
+        <p className="lede">
+          Fifty installable skills, eight categories. Open a card for the full
+          playbook and a per-skill install command.
+        </p>
         <div className="chips" role="tablist" aria-label="Skill categories">
           <button
             type="button"
@@ -151,9 +164,30 @@ export function Home() {
           ))}
         </ul>
         {filtered.length === 0 ? (
-          <p className="empty">No skills match that filter.</p>
+          <p className="empty">
+            No skills match that filter.{' '}
+            <button
+              type="button"
+              className="chip"
+              onClick={() => {
+                setQuery('')
+                setActive('all')
+              }}
+            >
+              Clear search and filters
+            </button>
+          </p>
         ) : null}
+        <div className="panel after-grid">
+          <p className="cta-label">Install the set</p>
+          <CopyCommand command={INSTALL_COMMAND} />
+          <p className="cta-secondary">
+            or <Link to="/agents">open the specialist roster</Link> ·{' '}
+            <a href={REPO_URL}>GitHub</a>
+          </p>
+        </div>
       </section>
+      <SiteFooter />
     </div>
   )
 }

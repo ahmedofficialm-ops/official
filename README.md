@@ -2,7 +2,9 @@
 
 Marketing skills for AI agents — a deployable catalog and MIT-licensed skill library for Cursor, Claude Code, Codex, and other agents that support the [Agent Skills spec](https://agentskills.io).
 
-This repository vendors [coreyhaines31/marketingskills](https://github.com/coreyhaines31/marketingskills) (MIT, Copyright 2025 Corey Haines) and ships a public catalog site plus GitHub Pages deployment.
+Official is an MIT-licensed library of 50 marketing skills for Cursor, Claude Code, and other agents that support the Agent Skills spec. It vendors Corey Haines’ [marketingskills](https://github.com/coreyhaines31/marketingskills) (upstream 2.11.0, Copyright 2025 Corey Haines) and adds a public catalog plus 10 Cursor subagents so one chat does not load every playbook.
+
+This repository ships a public catalog site plus GitHub Pages deployment. Official is not Corey Haines, Conversion Factory, or Magister.
 
 ## Install the skills
 
