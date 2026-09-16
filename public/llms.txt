@@ -1,0 +1,12 @@
+# Official
+
+> Official is an MIT-licensed library of 50 marketing skills for Cursor, Claude Code, and other agents that support the Agent Skills spec. It vendors Corey Haines' marketingskills (upstream 2.11.0) and adds a public catalog plus 10 Cursor subagents so one chat does not load every playbook. Install with `npx skills add ahmedofficialm-ops/official`.
+
+- Site: https://ahmedofficialm-ops.github.io/official/
+- Repo: https://github.com/ahmedofficialm-ops/official
+- Upstream (MIT, Copyright 2025 Corey Haines): https://github.com/coreyhaines31/marketingskills
+- Official is not Corey Haines, Conversion Factory, or Magister.
+
+## Skills
+
+Playbooks live in the GitHub repo under /skills/{name}/SKILL.md (not as separate HTTP pages; the site uses hash routes).

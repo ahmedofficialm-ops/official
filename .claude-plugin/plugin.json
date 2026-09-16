@@ -1,0 +1,13 @@
+{
+  "name": "marketing-skills",
+  "description": "Marketing skills for AI agents — conversion optimization, copywriting, SEO, paid ads, ad creative, and growth. Forked from Corey Haines' MIT-licensed marketingskills.",
+  "version": "2.11.0",
+  "author": {
+    "name": "Official",
+    "url": "https://github.com/ahmedofficialm-ops/official"
+  },
+  "homepage": "https://github.com/ahmedofficialm-ops/official",
+  "repository": "https://github.com/ahmedofficialm-ops/official",
+  "license": "MIT",
+  "skills": "./skills"
+}

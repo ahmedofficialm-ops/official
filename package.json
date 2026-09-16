@@ -6,12 +6,15 @@
   "scripts": {
     "dev": "vite",
     "build": "tsc -b && vite build",
-    "lint": "oxlint",
-    "preview": "vite preview"
+    "lint": "oxlint src scripts vite.config.ts",
+    "preview": "vite preview",
+    "test": "node scripts/validate-catalog.mjs"
   },
   "dependencies": {
+    "marked": "^17.0.1",
     "react": "^19.2.8",
-    "react-dom": "^19.2.8"
+    "react-dom": "^19.2.8",
+    "react-router-dom": "^7.9.4"
   },
   "devDependencies": {
     "@types/node": "^24.13.3",
